@@ -40,4 +40,8 @@ export default class Invoice extends BaseEntity implements AggregateRoot {
   get items(): Array<InvoiceItems> {
     return this._items;
   }
+
+  get address(): Address {
+    return this._address;
+  }
 }
