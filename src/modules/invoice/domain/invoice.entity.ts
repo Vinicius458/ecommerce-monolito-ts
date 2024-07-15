@@ -21,6 +21,8 @@ export default class Invoice extends BaseEntity implements AggregateRoot {
   private _address: Address;
   private _items: InvoiceItems[];
 
+  private _total: number = 0;
+
   constructor(props: InvoiceProps) {
     super(props.id);
     this._name = props.name;
@@ -29,12 +31,19 @@ export default class Invoice extends BaseEntity implements AggregateRoot {
     this._items = props.items;
   }
 
+  sum(): void {
+    this._total = this._items.reduce((acc, item) => acc + item.price, 0);
+  }
   get name(): string {
     return this._name;
   }
 
   get document(): string {
     return this._document;
+  }
+
+  get total(): number {
+    return this._total;
   }
 
   get items(): Array<InvoiceItems> {
