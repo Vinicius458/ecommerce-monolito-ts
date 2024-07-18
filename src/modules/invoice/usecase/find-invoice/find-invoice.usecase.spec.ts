@@ -2,7 +2,7 @@ import Address from "../../../@shared/domain/value-object/address";
 import Id from "../../../@shared/domain/value-object/id.value-object";
 import InvoiceItems from "../../domain/invoice-items.entity";
 import Invoice from "../../domain/invoice.entity";
-import FindInvoiceUseCase from "./generate-invoice.usecase";
+import FindInvoiceUseCase from "./find-invoice.usecase";
 
 const address = new Address(
   "Street 54",
